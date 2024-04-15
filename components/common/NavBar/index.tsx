@@ -25,7 +25,7 @@ const NavBar: FC<NavbarProps> = ({ navItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="max-w-[1920px] mx-auto flex flex-row justify-between items-center w-full px-3 md:px-10 bg-[#FFFEDA]">
+    <nav className="max-w-[1920px] mx-auto flex flex-row justify-between items-center w-full px-3 md:px-10 bg-[#FFFEDA] ">
       <Link href={"/"}>
         <Image src={"/icons/logo.svg"} alt="logo" width={150} height={60} />
       </Link>
@@ -38,12 +38,15 @@ const NavBar: FC<NavbarProps> = ({ navItems }) => {
           {navInteractionIcons[isMenuOpen ? "close" : "show"]}
         </Label>
       </div>
-      <div className="hidden lg:flex gap-5">
+      <div className="hidden lg:flex gap-5 items-center">
         {navItems.map(({ text, link }) => (
           <NavItem key={link} href={link} className="flex items-center  py-5">
             {text}
           </NavItem>
         ))}
+        <button className="bg-[#3E497A] cursor-pointer text-sm  py-1.5 px-6 text-white rounded-md">
+          Free Trial
+        </button>
       </div>
     </nav>
   );

@@ -27,3 +27,22 @@
     transform: translateY(0);
   }
 }
+
+.dot::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  left: 0;
+  background-color: white;
+  animation: move-dot 2s linear infinite;
+}
+
+@keyframes move-dot {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(70px);
+  }
+}

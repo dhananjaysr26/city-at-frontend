@@ -8,16 +8,17 @@ interface Props {
   className?: string;
   children: React.ReactNode;
 }
+
 const HomeLayout: FC<Props> = ({ className, children }) => (
   <div className={className}>
     <NavBar navItems={navItems} />
     <main className="w-full bg-[#FFFEDA] relative">
-      <div className="h-[calc(100vh-150px)] bg-[#FFFEDA] w-full flex items-center max-w-[1200px] mx-auto ">
-        <div className=" flex flex-col gap-y-4 ml-[20px]">
+      <div className="h-[calc(100vh-150px)] bg-[#FFFEDA] w-full flex flex-col-reverse md:flex-row items-center max-w-[1200px] mx-auto ">
+        <div className=" flex flex-col gap-y-4 px-3 md:ml-[20px] z-20">
           <h1 className="text-[#212529] font-bold text-[32px] xl:text-[48px] w-[550px]">
             Recognize Faces with Lystface API
           </h1>
-          <p className="w-[400px] text-[#818992] font-normal text-[16px] xl:text-[18px]">
+          <p className="md:w-[400px] text-[#818992] font-normal text-[16px] xl:text-[18px]">
             Elevate your platform’s capabilities using our precision facial
             recognition API. Seamlessly integrate Lystface API for swift and
             secure user verification - experiencing the power of seamless
@@ -45,8 +46,7 @@ const HomeLayout: FC<Props> = ({ className, children }) => (
         <div className="flex-1 flex justify-center items-center z-10 relative ">
           <video
             src="/videos/hero_video.mp4"
-            style={{ height: "350px" }}
-            className="bg-transparent rounded-[20px] h-[320px]"
+            className="bg-transparent rounded-[20px] h-[200px] sm:h-[250px] md:h-[320px]"
             loop
             autoPlay
             muted
@@ -59,39 +59,39 @@ const HomeLayout: FC<Props> = ({ className, children }) => (
           width={200}
           height={200}
           alt="animated-icon"
-          className="absolute left-10 top-5 animate-updown"
+          className="absolute left-10 top-5 animate-updown select-none"
         />
         <Image
           src="/icons/2.png"
           width={200}
           height={200}
           alt="animated-icon"
-          className="absolute left-0 bottom-10 animate-updown"
+          className="absolute left-0 bottom-10 animate-updown select-none"
         />
         <Image
           src="/icons/3.png"
           width={120}
           height={100}
           alt="animated-icon"
-          className="absolute right-0 top-5 animate-updown"
+          className="absolute right-0 top-5 animate-updown select-none"
         />
         <Image
           src="/icons/4.png"
           width={200}
           height={200}
           alt="animated-icon"
-          className="absolute right-0 bottom-10 animate-updown"
+          className="absolute right-0 bottom-10 animate-updown select-none"
         />
         <Image
           src="/icons/6.png"
           width={30}
           height={30}
           alt="animated-icon"
-          className="absolute left-5 bottom-20 animate-spin-1"
+          className="absolute left-5 bottom-20 animate-spin-1 select-none"
         />
       </div>
-      {children}
     </main>
+    <main>{children}</main>
     <Footer />
   </div>
 );
