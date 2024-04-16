@@ -19,8 +19,8 @@ const SectionLink = ({
 }) => {
   return (
     <div className=" flex flex-col gap-y-1">
-      <h2 className=" text-lg font-semibold">{sectionName}</h2>
-      <ul className=" flex flex-col gap-2">
+      <h2 className=" text-base md:text-lg font-semibold">{sectionName}</h2>
+      <ul className=" flex flex-col gap-0.5 md:gap-2">
         {links.map(({ href, text }) => {
           return (
             <li key={href}>
@@ -40,8 +40,8 @@ const SectionLink = ({
 const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <footer className=" bg-footer-texture bg-bottom bg-no-repeat w-full object-cover border-t-[1px] px-3">
-      <div className="flex justify-between px-5 py-6 pt-10 max-w-[1200px] mx-auto ">
-        <div className=" flex flex-col pr-5 w-1/2">
+      <div className="flex justify-between px-3 md:px-5 py-6 pt-10 max-w-[1200px] mx-auto ">
+        <div className=" flex flex-col pr-5 md:w-1/2">
           <div className=" flex flex-col gap-2">
             <Link href={"/"}>
               <Image
@@ -60,19 +60,22 @@ const Footer: React.FC<FooterProps> = ({}) => {
               "https://play.google.com/store/apps/details?id=com.lystface&hl=en_US&pli=1"
             }
           >
-            <div className=" py-2 flex justify-center gap-2 flex-col">
-              <h2 className=" text-lg font-semibold uppercase">Mobile Apps</h2>
+            <div className=" py-2 flex justify-center gap-1.5 md:gap-2 flex-col">
+              <h2 className=" text-base md:text-lg font-semibold uppercase">
+                Mobile Apps
+              </h2>
               <Image
                 src={"/icons/play-store.png"}
                 alt="logo"
                 width={120}
                 height={60}
+                className=""
               />
             </div>
           </ActiveLink>
           <div className=" py-2">
             <h2>Connect with Us</h2>
-            <ul className=" flex gap-2 pt-2">
+            <ul className=" flex gap-1 md:gap-2 pt-2">
               {socials.map(({ href, iconSrc }) => {
                 return (
                   <li key={href}>
@@ -82,7 +85,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
                         height={30}
                         alt="social-icon"
                         src={iconSrc}
-                        className=" h-6 w-6"
+                        className="h-5 md:h-6 w-5 md:w-6"
                       />
                     </ActiveLink>
                   </li>
@@ -103,7 +106,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
         </div>
       </div>
       <div className=" flex justify-between flex-col md:flex-row items-center border-t-[1px] py-5 md:py-8 px-3 text-[#818992] ">
-        <span className=" text-center">
+        <span className=" text-center text-xs md:text-sm">
           Copyright@2024 Lystloc Inc. All Rights Reserved
         </span>
         <div className=" flex items-center gap-x-1 md:gap-x-2">

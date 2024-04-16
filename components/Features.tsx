@@ -8,8 +8,10 @@ const Feature = ({ src, heading, description }: any) => {
   return (
     <div className=" flex flex-col items-center justify-center gap-2">
       <Image width={70} height={70} alt="icon" src={src} />
-      <h2>{heading}</h2>
-      <p className=" text-center max-w-[300px]">{description}</p>
+      <h2 className=" font-semibold md:text-lg">{heading}</h2>
+      <p className=" text-center text-sm md:text-base max-w-[300px] text-[#818992] ">
+        {description}
+      </p>
     </div>
   );
 };

@@ -48,7 +48,7 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
       <div>
         <FormProvider {...methods}>
           <form
-            className="bg-[#F5FAFF] h-fit flex flex-col max-w-[450px] gap-y-5  px-6 py-5"
+            className="bg-[#F5FAFF] h-fit items-center md:items-start flex flex-col max-w-[450px] gap-y-5  px-6 py-5"
             onSubmit={handleSubmit(onSubmit)}
           >
             {contactUsForm.sections.map(
