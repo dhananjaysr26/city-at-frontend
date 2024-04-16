@@ -6,18 +6,20 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <HomeLayout className="flex min-h-screen flex-col items-center relative w-full ">
+    <HomeLayout
+      showBanner
+      className="flex min-h-screen flex-col items-center relative w-full "
+    >
       <section id="features" className=" mt-5">
         <SectionHeading
           heading="Lystface API Features"
           description="Our features are simple, powerful and an easy fit to any platform to increase the organization’s productivity."
         />
-
         <div className=" py-5">
           <Features />
         </div>
       </section>
-      <section id="contactUs" className=" mt-5">
+      <section id="contactUs" className=" mt-5 mb-10">
         <SectionHeading
           heading="Contact US"
           description="Get in Touch with Us!"

@@ -103,7 +103,9 @@ const Footer: React.FC<FooterProps> = ({}) => {
         </div>
       </div>
       <div className=" flex justify-between flex-col md:flex-row items-center border-t-[1px] py-5 md:py-8 px-3 text-[#818992] ">
-        <span>Copyright@2024 Lystloc Inc. All Rights Reserved</span>
+        <span className=" text-center">
+          Copyright@2024 Lystloc Inc. All Rights Reserved
+        </span>
         <div className=" flex items-center gap-x-1 md:gap-x-2">
           {footerBottomLinks.map(({ href, text }) => (
             <ActiveLink key={href} href={href}>

@@ -39,6 +39,9 @@ const config = {
       colors: {
         primary: "#3E497A",
       },
+      boxShadow: {
+        header: "0px 4px 4px rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

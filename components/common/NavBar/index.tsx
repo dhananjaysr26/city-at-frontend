@@ -2,7 +2,7 @@
 
 import Hamburger from "@heroicons/react/24/solid/Bars3Icon";
 import XMark from "@heroicons/react/24/solid/XMarkIcon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FC } from "react";
 import NavItem from "./NavItem";
 import { Label } from "@/components/ui/label";
@@ -23,9 +23,28 @@ type NavbarProps = {
 
 const NavBar: FC<NavbarProps> = ({ navItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="max-w-[1920px] mx-auto flex flex-row justify-between items-center w-full px-3 md:px-10 bg-[#FFFEDA] ">
+    <nav
+      className={`max-w-[1920px] mx-auto sticky top-0 z-50 flex flex-row justify-between items-center w-full py-3.5 md:py-0.5 px-3 md:px-10 bg-[#FFFEDA] ${
+        isFixed ? "shadow-header" : ""
+      } `}
+    >
       <Link href={"/"}>
         <Image src={"/icons/logo.svg"} alt="logo" width={150} height={60} />
       </Link>
