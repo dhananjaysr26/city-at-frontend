@@ -10,8 +10,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navInteractionIcons = {
-  show: <Hamburger className=" h-5 w-5" />,
-  close: <XMark className=" h-5 w-5" />,
+  show: <Hamburger className=" h-7 w-7" />,
+  close: <XMark className=" h-7 w-7" />,
 };
 
 type NavbarProps = {
@@ -43,7 +43,7 @@ const NavBar: FC<NavbarProps> = ({ navItems }) => {
     <nav
       className={`max-w-[1920px] mx-auto sticky top-0 z-50 flex flex-row justify-between items-center w-full py-3.5 md:py-0.5 px-3 md:px-10 bg-[#FFFEDA] ${
         isFixed ? "shadow-header" : ""
-      } `}
+      }`}
     >
       <Link href={"/"}>
         <Image src={"/icons/logo.svg"} alt="logo" width={150} height={60} />
@@ -67,6 +67,23 @@ const NavBar: FC<NavbarProps> = ({ navItems }) => {
           Free Trial
         </button>
       </div>
+
+      {isMenuOpen && (
+        <div className=" absolute justify-center flex flex-col items-start px-5 top-[60px] w-full h-[220px] py-10 border-y-[1px] border-gray-300 bg-secondary/90 left-0">
+          {navItems.map(({ text, link }) => (
+            <NavItem
+              key={link}
+              href={link}
+              className="flex items-center justify-between py-2"
+            >
+              {text}
+            </NavItem>
+          ))}
+          <button className="bg-[#3E497A] cursor-pointer text-sm  py-1.5 px-6 text-white rounded-md">
+            Free Trial
+          </button>
+        </div>
+      )}
     </nav>
   );
 };

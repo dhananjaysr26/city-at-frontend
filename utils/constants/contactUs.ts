@@ -136,7 +136,7 @@ export const contactUsForm = {
           field: "message",
           placeholder: "Describe Your Needs here!",
           rows: 5,
-          columns: 5,
+          columns: 3,
           minLength: 10,
           maxLength: 200,
         },
