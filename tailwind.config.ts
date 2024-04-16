@@ -36,6 +36,9 @@ const config = {
       backgroundImage: {
         "footer-texture": "url('/images/footer-bg.png')",
       },
+      colors: {
+        primary: "#3E497A",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

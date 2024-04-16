@@ -17,7 +17,7 @@ export default function Home() {
           <Features />
         </div>
       </section>
-      <section id="features" className=" mt-5">
+      <section id="contactUs" className=" mt-5">
         <SectionHeading
           heading="Contact US"
           description="Get in Touch with Us!"

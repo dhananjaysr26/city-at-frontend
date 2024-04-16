@@ -1,10 +1,12 @@
 "use client";
 
 import { contactUsForm } from "@/utils/constants/contactUs";
-import React from "react";
+import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import RenderLabel from "./Form/RenderLabel";
 import RenderWidgets from "./Form/RenderWigets";
+import { createContact } from "@/services/contactForm.service";
+import { toastError, toastSuccess } from "@/utils/helper/myToast";
 
 interface ContactFormProps {}
 
@@ -16,12 +18,30 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
     reset,
     formState: { errors, touchedFields, isValid },
   } = methods;
+  // console.log(watch());
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data: any) => {
-    console.log({ data });
+    const { dialCode, phone, ...rest } = data;
+    setIsLoading(true);
+    try {
+      const res = await createContact({
+        ...rest,
+        phone: `${dialCode}-${phone}`,
+      });
+      if (res.statusCode === 200) {
+        reset();
+        return toastSuccess("Submitted SuccessFully!");
+      } else if (res.statusCode === 409) {
+        return toastError("Already Submitted with this Email!");
+      }
+    } catch (err) {
+      console.log(err);
+      return toastError("Something went Wrong!");
+    } finally {
+      setIsLoading(false);
+    }
   };
-
-  console.log(watch());
 
   return (
     <>
@@ -57,8 +77,13 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
               }
             )}
             {/* submit Button */}
-            <button className="bg-[#3E497A] cursor-pointer text-sm  py-2.5 px-6 text-white rounded-md max-w-[150px]">
-              Send Message
+            <button
+              disabled={isLoading}
+              className="bg-primary relative cursor-pointer disabled:text-white/50 disabled:bg-primary/50 text-sm  py-2.5 px-6 text-white rounded-md max-w-[150px]"
+            >
+              <span className=" transition-all duration-1000">
+                {isLoading ? "Sending..." : "Send Message"}
+              </span>
             </button>
           </form>
         </FormProvider>

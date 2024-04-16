@@ -1,5 +1,5 @@
 import { CountryList } from "@/types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import SimpleSelectBox from "./SimpleSelectBox";
 
@@ -28,6 +28,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
   const [country, setCountry] = useState(defaultCountry);
   const {
     register,
+    setValue,
     formState: { errors },
   } = useFormContext();
 
@@ -54,7 +55,9 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
     return registerOptions;
   };
 
-  console.log({ V: { ...getRegisterOptions() }, errors });
+  useEffect(() => {
+    setValue("dialCode", country?.dialCode);
+  }, [country]);
 
   return (
     <>

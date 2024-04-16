@@ -58,9 +58,8 @@ const TextAreaInput: React.FC<TextAreaInputProps> = ({
         id={label + "_text"}
         rows={rows}
         cols={columns}
-        className={`flex w-full border border-transparent px-3 py-3 
-                text-base
-                file:border-0 file:bg-transparent file:text-sm file:font-medium 
+        className={`flex w-full border-transparent px-3 py-3 
+                text-base border border-gray-300
                 placeholder:text-neutral-400 
                 disabled:cursor-not-allowed 
                 disabled:opacity-50

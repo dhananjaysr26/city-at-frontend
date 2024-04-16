@@ -7,7 +7,7 @@ export const contactUsForm = {
         {
           widgetType: "text",
           label: "First Name",
-          field: "firstName",
+          field: "firstname",
           placeholder: "First name",
           required: true,
           minLength: 2,
@@ -20,7 +20,7 @@ export const contactUsForm = {
         {
           widgetType: "text",
           label: "Last Name",
-          field: "lastName",
+          field: "lastname",
           placeholder: "Last name",
           required: true,
           minLength: 2,
@@ -60,7 +60,7 @@ export const contactUsForm = {
         {
           widgetType: "phoneNumber",
           label: "Phone Number",
-          field: "phoneNumber",
+          field: "phone",
           placeholder: "Phone Number",
           required: true,
           countryCodeList: [

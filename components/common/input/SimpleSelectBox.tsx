@@ -74,7 +74,7 @@ const SimpleSelectBox = <T extends string>({
       onMouseLeave={() => setIsDropdownOpen(false)}
     >
       <div
-        className={`flex justify-between border-1 ${borderColor} rounded-lg p-3 px-4 ${
+        className={`flex justify-between border border-gray-300 ${borderColor} rounded-lg p-3 px-4 ${
           disabled ? disabledColor : "bg-white"
         } ${isDropdownOpen ? " border-red-300 rounded-b-none" : ""}`}
         onClick={() => {
