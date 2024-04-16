@@ -49,9 +49,12 @@ export const contactUsForm = {
           field: "email",
           placeholder: "Email",
           required: true,
-          validation: "email",
           minLength: 4,
           maxLength: 45,
+          validation: {
+            type: "exclude-domain",
+            values: ["gmail.com", "yahoo.com"],
+          },
         },
       ],
     },

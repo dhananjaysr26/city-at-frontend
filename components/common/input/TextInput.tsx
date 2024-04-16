@@ -1,11 +1,15 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
+interface Validation {
+  type: string;
+  values: any;
+}
 interface TextInputProps {
   label: string;
   field: string;
   disabled?: boolean;
-  validation?: string;
+  validation?: Validation;
   placeholder: string;
   required?: boolean;
   minLength?: number;
@@ -29,6 +33,14 @@ const TextInput: React.FC<TextInputProps> = ({
 
   const errorMessage: any = errors[field]?.message;
 
+  const validateEmailDomain = (value: string) => {
+    const check = validation?.values.some((v: string) => value.includes(v));
+    if (check) {
+      return `This Email Domain Not Supported`;
+    } else {
+      return null;
+    }
+  };
   const getRegisterOptions = () => {
     let registerOptions: any = {};
 
@@ -47,6 +59,9 @@ const TextInput: React.FC<TextInputProps> = ({
         value: maxLength,
         message: `${label} is limit upto ${maxLength} Characters.`,
       };
+    }
+    if (validation?.type === "exclude-domain") {
+      registerOptions.validate = validateEmailDomain;
     }
     return registerOptions;
   };
