@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 .animate-spin-1 {
   animation: spin 3s linear infinite;
 }
@@ -45,4 +53,40 @@
   to {
     transform: translateX(70px);
   }
+}
+/* Custom Radio Button */
+.radio-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  position: relative;
+}
+
+.radio-input:checked {
+  border-color: var(--checkColor, #ff5c5f);
+}
+
+.radio-input::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--checkColor, #ff5c5f);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.radio-input:checked::before {
+  opacity: 1;
 }

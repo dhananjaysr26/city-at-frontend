@@ -2,6 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import Features from "@/components/Features";
 import SectionHeading from "@/components/common/ui/SectionHeading";
 import HomeLayout from "@/layouts/HomeLayout";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -22,7 +23,16 @@ export default function Home() {
           description="Get in Touch with Us!"
         />
 
-        <div className=" py-5">
+        <div className=" py-5 flex flex-col md:flex-row w-full  items-center gap-5">
+          <div className=" w-1/2">
+            <Image
+              height={200}
+              width={200}
+              alt="icon"
+              src="/images/contact.png"
+              className=" w-full h-1/2"
+            />
+          </div>
           <ContactForm />
         </div>
       </section>
