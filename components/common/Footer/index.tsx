@@ -52,7 +52,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
               />
             </Link>
             <h6 className=" text-sm font-normal">
-              Recognize faces your way, our API!
+              Unleashing the Power of Bromine & Chemicals
             </h6>
           </div>
           <ActiveLink
